@@ -33,6 +33,11 @@ def similar(dis):
         final_list.append(data[i[0]])
     return final_list
 
+# Home Route
+@app.route('/')
+def hello_world():
+    return 'Hello, World! This is a basic Flask app.'
+
 # main route where all the computation occur
 @app.route('/api/data', methods=['POST'])
 def get_data():
