@@ -47,15 +47,19 @@ def get_data():
 
     # Process the data as needed
     inp = {col: 0 for col in all_symptoms}
+    print("Process the data")
 
     for dis in user_symptoms:
         inp.update({dis: 1})
-
+        
     inp = pd.DataFrame(inp, index=[0])
     ans = encoder.inverse_transform(model.predict(inp))[0]
-
+    print(ans)
+    
+    print("Entering in similar ans")
     final_list = similar(ans)
     print(final_list)
+    
     result = {'prediction': ans, 'similarDisease': final_list}
     return jsonify(result)
 
