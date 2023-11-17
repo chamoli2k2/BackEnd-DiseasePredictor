@@ -18,7 +18,8 @@ with open('encoder.pkl', 'rb') as file:
 all_symptoms = pickle.load(open('all_symptoms', 'rb'))
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+# Enable CORS for only the specified origin
+CORS(app, resources={r"/api/*": {"origins": "https://moderndiseasedetector.onrender.com"}})
 
 # function to have a similar disease
 def similar(dis):
